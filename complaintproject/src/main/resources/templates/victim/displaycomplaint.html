@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="leftnav">
+            <div class="menu">
+                <a href="/victim/home">Home</a>
+                <a href="/victim/addcomplaint">Add Complaint</a>
+                <a href="/victim/displaycomplaint">Display Complaints</a>
+                <a href="/logout">Logout</a>
+            </div>
+        </div>
+        <div class="content">
+            <p class="title">My Complaints</p>
+            <p class="title">Victim : <span th:text="${victim.getName()}"></span></p>
+            <hr />
+            <table class="victim" style="width: 100%;">
+                <thead>
+                    <tr>
+                        <th>Complaint</th>
+                        <th>Evidance</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody th:each="item:${data}">
+                    <td th:text="${item.getProblem()}"></td>
+                    <td><sub>(<a th:href="@{/victim/showEvidance/{cid}(cid=${item.getCid()})}"
+                                target="_blank">See
+                                Evidance</a>)</sub></td>
+                    <td>
+                        <!-- <a th:href="@{/victim/displayconversation/{cid}(cid=${item.getCid()})}">
+                    <button>See Conversation</button>
+                </a> -->
+                        <a th:href="@{/victim/addmessage/{cid}(cid=${item.getCid()})}">
+                            Send Message
+                        </a>
+                    </td>
+                </tbody>
+            </table>
+            <br /><br />
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

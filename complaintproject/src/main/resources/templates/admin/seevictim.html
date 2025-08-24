@@ -1,0 +1,50 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="leftnav">
+            <div class="menu">
+                <a th:href="@{/admin/seevictim}">Victims</a>
+                <a th:href="@{/admin/seecomplaint}">Complaints</a>
+                <a th:href="@{/admin/seeCloseComplaint}">Closed Complaints</a>
+                <a href="">Logout</a>
+            </div>
+        </div>
+        <div class="content">
+            <p class="title">Victim List</p>
+            <table class="victim">
+                <thead>
+                    <tr>
+                        <th>SNo</th>
+                        <th width="250">Victim Name</th>
+                        <th width="250">Complaints</th>
+                        <!-- <th>Email</th> -->
+                        <th width="250">Profile</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="item,info : ${data}">
+                        <td th:text="${info.count}"></td>
+                        <td th:text="${item.getName()}"></td>
+                        <td>
+                            <a th:href="@{/admin/seecomplaint/{vid}(vid=${item.getVid()})}"
+                                th:text="${item.getComplaint().size()}"></a>
+                        </td>
+                        <!-- <td th:text="${item.getEmail()}"></td> -->
+                        <td>
+                            <a th:href="@{/admin/seevictim/{vid}(vid=${item.getVid()})}">See Profile</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+*
+{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.container
+{
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+}
+.leftnav
+{
+    background: linear-gradient(deeppink,orange);
+    flex: 2;
+    position: fixed;
+    width: 30%;
+    height: 100vh;
+}
+.menu
+{
+    width: 80%;
+    height: 400px;
+    position: relative;
+    left: 10%;
+    top: 150px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    font-size: 24px;
+    line-height: 2;
+    text-indent: 10px;
+}
+.menu a
+{
+    text-decoration: none;
+    color: white;
+    border-bottom: 2px solid white;
+}
+.menu a:hover
+{
+    color: yellow;
+}
+.content
+{
+    background-color: #f3f0f0;
+    flex: 5;
+    position: fixed;
+    width: 70%;
+    height: 100vh;
+    right: 0;
+    padding: 50px;
+}
+.content .title
+{
+    font-size: 30px;
+    line-height: 3;
+}
+.content .victim thead 
+{
+    background-color: grey;
+    color: white;
+    height: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+.content .victim tbody tr td
+{
+     text-align: center;
+     border:1px solid grey;
+     font-size: 14px;
+     text-transform: capitalize;
+     height: 30px;
+}
+.content .victim tbody tr:hover
+{
+    background-color: grey;
+    color: white;
+}
+.content .victim tbody tr td a
+{
+    text-decoration: none;
+}
+
+.btn
+{
+    width: 150px;
+    height: 50px;
+    margin-top: 20px;
+    background:linear-gradient(deeppink,yellow);
+    outline: none;
+    border-radius:20px;
+    color: white;
+    font-size: 14px;
+}
+
+.message
+{
+    width: 100%;
+    border-radius: 10px;
+    height: 200px;
+    padding: 20px;
+    font-size: 16px;
+}
+.icon
+{
+    font-size: 24px;
+}
+a
+{
+    color: black;
+}
+.orange
+{
+    color: orange;
+}
+.green
+{
+    color: green;
+}
+.red
+{
+    color: red;
+}
+

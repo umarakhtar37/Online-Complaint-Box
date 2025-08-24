@@ -1,0 +1,51 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="leftnav">
+            <div class="menu">
+                <a th:href="@{/admin/seevictim}">Victims</a>
+                <a th:href="@{/admin/seecomplaint}">Complaints</a>
+                <a th:href="@{/admin/seeCloseComplaint}">Closed Complaints</a>
+                <a href="">Logout</a>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p class="title">Victim Profile</p>
+            <table class="victim">
+                <tr>
+                    <th>Victim Name</th>
+                    <td width="400" th:text="${victim.getName()}"></td>
+                </tr>
+                <tr>
+                    <th>Aadhar Number</th>
+                    <td th:text="${victim.getAadhar()}"></td>
+                </tr>
+                <tr>
+                    <th>Contact Number</th>
+                    <td th:text="${victim.getContact().toString()}"></td>
+                </tr>
+                <tr>
+                    <th>Email Address</th>
+                    <td th:text="${victim.getEmail()}"></td>
+                </tr>
+                <tr>
+                    <th>Residential Address</th>
+                    <td th:text="${victim.getAddress()}"></td>
+                </tr>
+                <tr>
+                    <th>State</th>
+                    <td th:text="${victim.getState()}"></td>
+                </tr>
+            </table>
+        </div>
+    
+    
+</body>
+
+</html>

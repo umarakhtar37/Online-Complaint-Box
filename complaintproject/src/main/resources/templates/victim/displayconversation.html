@@ -1,0 +1,21 @@
+<html>
+    <head></head>
+    <body>
+        <p>
+            <a href="/victim/home">Home</a> |
+            <a href="/victim/addcomplaint">Add Complaint</a> |
+            <a href="/victim/displaycomplaint">Display Complaints</a> | 
+            <a href="/logout">Logout</a>
+        </p>
+        <h3>Complaint: <span th:text="${complaint.getProblem()}"></span></h3>
+        <hr/>
+        <table>
+            <tbody>
+                <tr th:each="item:${data}">
+                    <td></td>
+                    <td th:text="${item.getMessage()}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

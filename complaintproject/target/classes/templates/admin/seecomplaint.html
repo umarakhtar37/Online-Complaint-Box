@@ -1,0 +1,73 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="/style.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="leftnav">
+            <div class="menu">
+                <a th:href="@{/admin/seevictim}">Victims</a>
+                <a th:href="@{/admin/seecomplaint}">Complaints</a>
+                <a th:href="@{/admin/seeCloseComplaint}">Closed Complaints</a>
+                <a href="">Logout</a>
+            </div>
+        </div>
+        <div class="content">
+            <p class="title" th:text="${title}"></p>
+            <table class="victim" style="width: 100%;">
+                <thead>
+                    <tr>
+                        <th>SNo</th>
+                        <th>Date</th>
+                        <th>Victim's</th>
+                        <th>Complaint</th>
+                        <th>Evidance</th>
+                        <th colspan="2">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="item,info : ${data}">
+                        <td th:text="${info.count}"></td>
+                        <td th:text="${item.getDate()}"></td>
+                        <td>
+                            <a th:href="@{/admin/seevictim/{vid}(vid=${item.getVictim().getVid()})}"
+                                th:text="${item.getVictim().getName()}">
+                            </a>
+                        </td>
+                        <td th:text="${item.getProblem()}"></td>
+                        <td>
+                            <a target="_blank" th:href="@{/admin/seeEvidance/{cid}(cid=${item.getCid()})}">
+                                See Evidance
+                            </a>
+                        </td>
+                        <td>
+                            <a th:href="@{/admin/seeconversation/{cid} (cid=${item.getCid()})}">
+                                <ion-icon title="See Conversation" class="icon orange" name="chatbubbles-outline"></ion-icon>
+                            </a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a th:href="@{/admin/addmessage/{cid}(cid=${item.getCid()})}">
+                                <ion-icon title="Send Message" class="icon green" name="mail-unread"></ion-icon>
+                            </a>
+                        </td>
+                        <td>
+                            <a th:if="${item.isStatus()==true}" th:href="@{/admin/closeComplaint/{cid}(cid=${item.getCid()})}">
+                                <ion-icon class="icon red" title="Close Complaint" name="checkmark-done-circle-outline"></ion-icon>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+
+    
+
+    
+</body>
+
+</html>

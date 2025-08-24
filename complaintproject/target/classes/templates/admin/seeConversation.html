@@ -1,0 +1,25 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="leftnav">
+            <div class="menu">
+                <a th:href="@{/admin/seevictim}">Victims</a>
+                <a th:href="@{/admin/seecomplaint}">Complaints</a>
+                <a th:href="@{/admin/seeCloseComplaint}">Closed Complaints</a>
+                <a href="">Logout</a>
+            </div>
+        </div>
+        
+        <div class="content">
+            <p class="title">Complaint Conversation</p>
+            <p th:each="item : ${data}" th:text="${item.getMessage()}" style="line-height: 2; font-size: 18px;"></p>
+        </div>
+    </div>
+</body>
+
+</html>

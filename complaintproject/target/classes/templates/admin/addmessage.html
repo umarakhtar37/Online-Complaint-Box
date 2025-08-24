@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="leftnav">
+            <div class="menu">
+                <a th:href="@{/admin/seevictim}">Victims</a>
+                <a th:href="@{/admin/seecomplaint}">Complaints</a>
+                <a th:href="@{/admin/seeCloseComplaint}">Closed Complaints</a>
+                <a href="">Logout</a>
+            </div>
+        </div>
+
+        <div class="content">
+            <p class="title">Send Message</p>
+
+            <h2>Victim: <span th:text="${complaint.getVictim().getName().toUpperCase()}"></span></h2>
+            <h3>Case: <span th:text="${complaint.getProblem()}"></span></h3>
+            <hr />
+
+            <h4 style="margin-top: 50px;">Conversation</h4>
+            <p th:each="item : ${data}" th:text="${item.getMessage()}"></p>
+
+            <form action="" method="post">
+                <hr />
+                <p style="margin-top: 50px">Admin Says</p>
+                <input type="hidden" name="cid" th:value="${complaint.getCid()}" />
+                <textarea  class="message" name="message" rows="6" cols="40"></textarea>
+                <p><button class="btn">Send Message</button></p>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

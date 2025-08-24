@@ -1,0 +1,20 @@
+<html>
+    <head>
+    <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="leftnav">
+                <div class="menu">
+                    <a href="/victim/home">Home</a>
+                    <a href="/victim/addcomplaint">Add Complaint</a>
+                    <a href="/victim/displaycomplaint">Display Complaints</a>
+                    <a href="/logout">Logout</a>
+                </div>
+            </div>
+            <div class="content">
+        <h1 style="text-align: center;">Welcome <span th:text="${victim.getName().toUpperCase()}"></span></h1>
+        </div>
+        </div>
+    </body>
+</html>
